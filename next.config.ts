@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'qr-api.onrender.com',
+        port: '',
+        pathname: '/download_qr/**',
+      },
     ],
   },
 };
