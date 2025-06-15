@@ -2,14 +2,14 @@ import { QrGeneratorForm } from '@/components/qr-generator-form';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 md:p-8 bg-background selection:bg-primary/20 selection:text-primary">
-      <div className="w-full max-w-lg mx-auto">
-        <header className="mb-8 sm:mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-extrabold text-primary tracking-tight">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 py-12 sm:p-8 md:p-12 bg-gradient-to-br from-background to-secondary">
+      <div className="w-full max-w-xl mx-auto">
+        <header className="mb-8 sm:mb-12 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-primary tracking-tight">
             QR Code Generator
           </h1>
-          <p className="mt-3 text-md sm:text-lg text-foreground/80 max-w-md mx-auto">
-            Enter a URL to generate a QR code instantly.
+          <p className="mt-4 text-md sm:text-lg text-foreground/80 max-w-md mx-auto">
+            Enter any URL to generate a QR code instantly. Simple, fast, and free.
           </p>
         </header>
         <QrGeneratorForm />

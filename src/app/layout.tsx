@@ -1,10 +1,17 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
-  title: 'QR Code Generator',
-  description: 'A simple and fast QR code generator.',
+  title: 'QR Code Generator | Instant & Easy',
+  description: 'Create, generate, and download QR codes for your URLs quickly and easily. A free online tool.',
 };
 
 export default function RootLayout({
@@ -13,13 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">
+    <html lang="en" className={`${inter.variable} light`}>
+      <head />
+      <body className="font-body antialiased selection:bg-primary/20 selection:text-primary">
         {children}
         <Toaster />
       </body>
