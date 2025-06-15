@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'qr-api.onrender.com',
+        hostname: 'qrcode-microservice.onrender.com',
         port: '',
         pathname: '/download_qr/**',
       },

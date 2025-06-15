@@ -6,10 +6,10 @@ export default function Home() {
       <div className="w-full max-w-lg mx-auto">
         <header className="mb-8 sm:mb-10 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-extrabold text-primary tracking-tight">
-            QR Swift
+            QR Code Generator
           </h1>
           <p className="mt-3 text-md sm:text-lg text-foreground/80 max-w-md mx-auto">
-            Instantly generate and download QR codes for your URLs with ease.
+            Enter a URL to generate a QR code instantly.
           </p>
         </header>
         <QrGeneratorForm />

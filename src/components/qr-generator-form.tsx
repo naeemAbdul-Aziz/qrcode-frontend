@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Download } from 'lucide-react';
 
+const API_BASE_URL = 'https://qrcode-microservice.onrender.com';
+
 export function QrGeneratorForm() {
   const [url, setUrl] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
@@ -30,7 +32,7 @@ export function QrGeneratorForm() {
     setQrCodeUrl(null);
 
     try {
-      const response = await fetch('https://qr-api.onrender.com/generate_qr', {
+      const response = await fetch(`${API_BASE_URL}/generate_qr`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +41,6 @@ export function QrGeneratorForm() {
       });
 
       if (!response.ok) {
-        // Try to parse error message from backend, otherwise use generic message
         let errorMessage = `HTTP error! status: ${response.status}`;
         try {
           const errorData = await response.json();
@@ -47,7 +48,6 @@ export function QrGeneratorForm() {
             errorMessage = errorData.message;
           }
         } catch (e) {
-          // Failed to parse JSON, use status text or generic message
           errorMessage = response.statusText || "An unknown error occurred while processing the request.";
         }
         throw new Error(errorMessage);
@@ -55,7 +55,7 @@ export function QrGeneratorForm() {
 
       const data = await response.json();
       if (data && data.file_url) {
-        setQrCodeUrl(`https://qr-api.onrender.com${data.file_url}`);
+        setQrCodeUrl(`${API_BASE_URL}${data.file_url}`);
       } else {
         throw new Error("QR code URL not found in response.");
       }
